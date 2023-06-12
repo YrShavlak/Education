@@ -1,3 +1,4 @@
+"""HomeTask_2."""
 norway_text = 'Automatisering akselererer %syeblikket da roboter vil' \
               ' erobre planeten v%sr. (%s)' % ('ø', 'å', 'Æ')
 print(norway_text)
