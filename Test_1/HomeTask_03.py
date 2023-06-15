@@ -19,6 +19,7 @@
 # advice: female and male calculation can be done vs flat list
 # or you can find your own approach ;)
 """
+import itertools
 from operator import itemgetter
 
 SEP_NUM = 21
@@ -64,9 +65,25 @@ people = [
     ('Luna', 55, 170, 'Smith', 'female'),
     ('Mike', 55, 55, 'Johnson', 'male'),
 ]
+# 1 - sort list by age and sex fields
 people.sort(key=itemgetter(1, 4))
 print(people)
+# 2 - somehow you need to get new list as old list without
+# first two elements and last two elements. Print this new list
+people_new_list = people[2:]
+people_new_list = people_new_list[:-2]
+print(people_new_list)
 
-people = people[2:]
-people = people[:-2]
-print(people)
+# 3 - in new list calculate total numbers of "female"  and "male"
+iter_people = list(itertools.chain.from_iterable(people_new_list))
+count_people = {
+    'female': iter_people.count('female'),
+    'male': iter_people.count('male'),
+}
+print('-' * SEP_NUM)
+print(f"| {'Sex':^8} | {'Count':^6} |")
+print('-' * SEP_NUM)
+
+for sex, count in count_people.items():
+    print(f'| {sex:^9}|  {count:^5} |')
+print('-' * SEP_NUM)
