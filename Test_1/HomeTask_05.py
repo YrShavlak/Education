@@ -6,7 +6,7 @@ write code that will help us to get cars that satisfy search_criteria.
 Cars should be sorted by price ascending.
 We should print up to five first found elements
 """
-
+ROWS_NUM = 5
 car_data = {
     'Mercedes': ('silver', 2019, 1.8, 'sedan', 50000),
     'Audi': ('black', 2020, 2.0, 'sedan', 55000),
@@ -49,12 +49,13 @@ car_data = {
     'Nissan Titan': ('silver', 2018, 5.6, 'pickup', 35000),
 }
 search_criteria = (2017, 1.6, 36000)
+s_year, s_eng_vol, s_price = search_criteria
 result_list = []
 for i in car_data.items():
     car_name, car_characteristic = i
     color, year, engine_volume, car_type, price = car_characteristic
-    if year >= 2017 and engine_volume >= 1.6 and price <= 36000:
+    if year >= s_year and engine_volume >= s_eng_vol and price <= s_price:
         result_list.append((car_name,) + car_characteristic)
 result_list.sort(key=lambda a: a[5])
-first_five_list = result_list[0:5]
-print(first_five_list)
+first_five_list = result_list[0:ROWS_NUM]
+print(first_five_list, sep='\n')
