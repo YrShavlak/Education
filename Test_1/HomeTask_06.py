@@ -35,7 +35,3 @@ list_target_l1 = [(l1_dict.get(i, 0), l2_dict.get(i, 0)) for i in indexes]
 print('list_target_l1 ', list_target_l1)
 list_target_l2 = [(l2_dict.get(i, 0), l1_dict.get(i, 0)) for i in indexes]
 print('list_target_l2 ', list_target_l2)
-
-
-
-
